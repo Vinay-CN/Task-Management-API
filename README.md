@@ -1,7 +1,3 @@
-# Task Management Application API
-
-This document outlines the RESTful APIs provided by the Task Management Application.
-
 ## API Endpoints
 
 ### User Controller
@@ -17,6 +13,116 @@ This document outlines the RESTful APIs provided by the Task Management Applicat
     "password": "string",
     "role": "string"
   }
-
-  ![image](https://github.com/Vinay-CN/Task-Management-API/assets/70995499/acca3491-babd-4f0e-a861-10af52a395e3)
-  
+Response:
+json
+ 
+{
+  "userId": 1,
+  "username": "string",
+  "password": "string",
+  "role": "string",
+  "tasks": []
+}
+Change user password
+Endpoint: PUT /user/changePassword/{userId}
+Description: Changes the password for a specific user.
+Parameters:
+userId (path): User ID.
+Request:
+json
+ 
+{
+  "oldPassword": "string",
+  "newPassword": "string"
+}
+Response:
+json
+ 
+"Password changed successfully"
+Change username
+Endpoint: PUT /user/changeUsername/{userId}
+Description: Changes the username for a specific user.
+Parameters:
+userId (path): User ID.
+Request:
+json
+ 
+{
+  "newUsername": "string"
+}
+Response:
+json
+ 
+"Username changed successfully"
+Delete user
+Endpoint: DELETE /user/deleteUser/{userId}
+Description: Deletes a user.
+Parameters:
+userId (path): User ID.
+Response:
+json
+ 
+"User deleted successfully"
+Get user by ID
+Endpoint: GET /user/getUserTasksById/{userId}
+Description: Retrieves user details by ID.
+Parameters:
+userId (path): User ID.
+Response:
+json
+ 
+{
+  "userId": 1,
+  "username": "string",
+  "password": "string",
+  "role": "string",
+  "tasks": []
+}
+Get all users
+Endpoint: GET /user/getAllUsers
+Description: Retrieves a list of all users.
+Response:
+json
+ 
+[
+  {
+    "userId": 1,
+    "username": "string",
+    "password": "string",
+    "role": "string",
+    "tasks": []
+  },
+  ...
+]
+Task Controller
+Create a new task
+Endpoint: POST /task/createTask
+Description: Creates a new task.
+Request:
+json
+ 
+{
+  "title": "string",
+  "description": "string",
+  "dueDate": "yyyy-MM-dd",
+  "status": "string"
+}
+Response:
+json
+ 
+"Task created successfully."
+Assign task to users
+Endpoint: POST /task/assignTask/{taskId}
+Description: Assigns a task to one or more users.
+Parameters:
+taskId (path): Task ID.
+Request:
+json
+ 
+{
+  "userIds": [1, 2, 3]
+}
+Response:
+json
+ 
+"Tasks assigned successfully."
