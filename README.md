@@ -15,7 +15,7 @@
   }
 -**Response:**
 
- ```json
+```json
 {
   "userId": 1,
   "username": "string",
