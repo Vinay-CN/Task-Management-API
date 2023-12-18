@@ -14,6 +14,7 @@
     "role": "string"
   }
 -**Response:**
+
  ```json
 {
   "userId": 1,
