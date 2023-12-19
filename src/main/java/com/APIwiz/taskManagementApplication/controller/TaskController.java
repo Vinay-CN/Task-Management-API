@@ -31,10 +31,6 @@ public class TaskController {
 
     // Create a new task
 
-    @GetMapping("/test")
-    public String test(){
-        return "succcees";
-    }
     @PostMapping("/createTask")
     public ResponseEntity<String> createTask(@RequestBody Task task) {
         // Log information about the request and result
@@ -137,11 +133,11 @@ public class TaskController {
         return ResponseEntity.status(HttpStatus.OK).body(taskDetailsList);
     }
 
-    @GetMapping("/tasksDueBefore")
-    public ResponseEntity<List<Task>> getTasksDueBefore(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
-        List<Task> tasks = taskServiceImplementation.getTasksDueBefore(date);
-        return ResponseEntity.ok(tasks);
-    }
+        @GetMapping("/tasksDueBefore")
+        public ResponseEntity<List<Task>> getTasksDueBefore(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
+            List<Task> tasks = taskServiceImplementation.getTasksDueBefore(date);
+            return ResponseEntity.ok(tasks);
+        }
 
     @GetMapping("/tasksByStatus")
     public ResponseEntity<List<Task>> getTasksByStatus(@RequestParam TaskStatus status) {
